@@ -115,3 +115,74 @@ Here are the links to the coding examples covered in the lessons:
 You can find the prompts used in each lesson and a summary of Claude  Code features in the optional reading item at the end of the course  (Prompts & Summaries of Lessons). You can also find them in this [repo](https://github.com/https-deeplearning-ai/sc-claude-code-files/tree/main/reading_notes).
 
 ## Lesson 4 - Understanding the RAG Chatbot codebase (14')
+
+Organizing the repos: I need to fork several examples and need to keep things organized so:
+
+- move existing note to `claude_code_course/my_notes`  then initialize git, commit and upload to github repo `mhered/claude_code_course_notes` 
+- fork the exercises as `claude_code_course_ex[N]_[exercise_repo_name]` and clone them to folders `claude_code_course/ex[N]_exercise_repo_name`
+
+Move files to `~/claude_code_course/my_notes`, then initialize and commit
+
+```bash
+mkdir ~/claude_code_course/my_notes 
+# manually drag files to the my_notes folder
+cd ~/claude_code_course/my_notes
+git init 
+git add .
+git commit -m "Initial commit"
+```
+
+In github create a new repo `claude_code_course_notes`. DO NOT add README/gitignore/license
+
+Connect the local repo to the newly created repo in github and push:
+
+```bash
+git remote add origin git@github.com:mhered/claude_code_course_notes.git
+git branch -M main
+git push -u origin main
+```
+
+Fork the first exercise:
+
+in github open the repo: https://github.com/https-deeplearning-ai/starting-ragchatbot-codebase.git
+
+Fork it to: `claude_code_course_ex1_starting-ragchatbot-codebase`
+
+Clone it locally to the folder `ex1_starting-ragchatbot-codebase`:
+
+```bash
+cd ~/claude_code_course/
+git clone git@github.com:mhered/claude_code_course_ex1_starting-ragchatbot-codebase.git ex1_starting-ragchatbot-codebase # note the structure: `git clone repo_name destination_folder`
+```
+
+Add upstream:
+
+```bash
+cd ex1_starting-ragchatbot-codebase/
+git remote add upstream https://github.com/https-deeplearning-ai/starting-ragchatbot-codebase.git
+git remote -v
+origin	https://github.com/mhered/claude_code_course_ex1_starting-ragchatbot-codebase.git (fetch)
+origin	https://github.com/mhered/claude_code_course_ex1_starting-ragchatbot-codebase.git (push)
+upstream	https://github.com/https-deeplearning-ai/starting-ragchatbot-codebase.git (fetch)
+upstream	https://github.com/https-deeplearning-ai/starting-ragchatbot-codebase.git (push)
+```
+
+Et voilá:
+
+```bash
+claude_code_course/
+├── ex1_starting-ragchatbot-codebase # repo: https://github.com/mhered/claude_code_course_ex1_starting-ragchatbot-codebase 
+│   ├── backend
+│   ├── docs
+│   ├── frontend
+│   ├── main.py
+│   ├── pyproject.toml
+│   ├── README.md
+│   ├── run.sh
+│   └── uv.lock
+└── my_notes # repo: https://github.com/mhered/claude_code_course_notes
+    ├── assets
+    ├── demo
+    ├── demo2
+    └── README.md
+```
